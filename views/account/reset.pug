@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+
+    h1.text-center.login-title Reset Password
+    div.signup-wall
+        form(class='form-horizontal', method='POST')
+            input(type='hidden', name='_csrf', value=_csrf)
+            .form-group
+                label(for="inputPassword" class="col-sm-3 control-label") New Password
+                .col-sm-6
+                    input(class='form-control', id='inputPassword', type='password', name='password', placeholder='New Password', autofocus, required)
+            .form-group
+                label(for="confirmPassword" class="col-sm-3 control-label") Confirm Password
+                .col-sm-6
+                    input(class='form-control', id='confirmPassword', type='password', name='confirm', placeholder='Confirm Password', required)
+            .form-group
+                .col-sm-offset-3.col-sm-6
+                    button(class='btn btn-lg btn-primary btn-block', type='submit')
+                        i.fas.fa-user-lock
+                        |  Change Password
+            span.clearfix

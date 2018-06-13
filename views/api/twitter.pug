@@ -1,0 +1,50 @@
+extends ../layout
+
+block content
+
+    h1.text-center.login-title Twitter API
+    .signup-wall.box-examples
+        .btn-group.btn-group-justified
+            a.btn.btn-primary(href='https://developer.twitter.com/en/docs', target='_blank')
+                i.far.fa-file-alt
+                |  Documentation
+            a.btn.btn-primary(href='https://developer.twitter.com/en/docs/tutorials', target='_blank')
+                i.far.fa-check-square
+                |  Tutorials
+            a.btn.btn-primary(href='https://developer.twitter.com/en/docs/api-reference-index', target='_blank')
+                i.fas.fa-code-branch
+                |  API Endpoints
+
+        br
+
+        .well.api-examples
+            h4 Compose new Tweet
+            form(role='form', method='POST')
+                input(type='hidden', name='_csrf', value=_csrf)
+                .form-group
+                    input.form-control(type='text', name='tweet', autofocus)
+                    p.help-block This new Tweet will be posted on your Twitter profile.
+                button.btn.btn-primary(type='submit')
+                    i.fab.fa-twitter.fa-sm
+                    |  Tweet
+
+        br
+
+        .lead Latest
+            strong  #{tweets.length}
+            |  Tweets containing the term
+            strong  nodejs
+            |  in NYC within
+            strong  5
+            |  miles radius
+
+        ul.media-list
+            for tweet in tweets
+                li.media
+                    a.pull-left(href='#')
+                        - var image = tweet.user.profile_image_url.replace('_normal', '');
+                        img.media-object(src=image, style='width: 64px; height: 64px;')
+                    .media-body
+                        strong.media-heading #{tweet.user.name}
+                        span.text-muted  @#{tweet.user.screen_name}
+                        p= tweet.text

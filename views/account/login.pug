@@ -1,0 +1,44 @@
+extends ../layout
+
+block content
+
+    h1.text-center.login-title Login to our Passport app
+    div.account-wall
+        img(class='profile-img', src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120')
+        form(class='form-signin', action='/login', method='POST')
+            input(type='hidden', name='_csrf', value=_csrf)
+            input(type='email', name='email', class='form-control', placeholder='Email', autofocus, required)
+            input(type='password', name='password', class='form-control', placeholder='Password', required)
+            .btn-group.btn-group-lg
+                button.btn.btn-primary(id='submit', type='submit')
+                    i.far.fa-user
+                    |  Login User
+                button.btn.btn-primary.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                    span.caret
+                    span.sr-only Toggle Dropdown
+                ul.dropdown-menu
+                    li
+                        a(href='/auth/facebook')
+                            i.fab.fa-facebook
+                            |  Login with Facebook
+                    li
+                        a(href='/auth/twitter')
+                            i.fab.fa-twitter
+                            |  Login with Twitter
+                    li
+                        a(href='/auth/google')
+                            i.fab.fa-google
+                            |  Login with Google
+                    li
+                        a(href='/auth/github')
+                            i.fab.fa-github
+                            |  Login with GitHub
+                    li
+                        a(href='/auth/linkedin')
+                            i.fab.fa-linkedin
+                            |  Login with LinkedIn
+                    li
+                        a(href='/auth/instagram')
+                            i.fab.fa-instagram
+                            |  Login with Instagram
+            a(href='/forgot') Forgot your password?

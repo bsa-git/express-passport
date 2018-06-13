@@ -1,0 +1,136 @@
+extends ../layout
+
+block content
+
+    h1.text-center.login-title Profile Information
+    div.signup-wall
+        form(class='form-horizontal', action='/account/profile', method='POST')
+            input(type='hidden', name='_csrf', value=_csrf)
+            .form-group
+                label.col-sm-3.control-label Gravatar
+                .col-sm-4
+                    img(src=user.gravatar(), class='profile', width='100', height='100')
+            .form-group
+                label(for="inputEmail" class="col-sm-3 control-label") Email
+                .col-sm-6
+                    input(class='form-control', id='inputEmail', type='email', name='email', placeholder='Email' value=user.email)
+            .form-group
+                label(for="inputUserName" class="col-sm-3 control-label") User Name
+                .col-sm-6
+                    input(class='form-control', id='inputUserName', type='text', name='name', placeholder='User Name' value=user.profile.name)
+            .form-group
+                label(for="inputLocation" class="col-sm-3 control-label") Location
+                .col-sm-6
+                    input(class='form-control', id='inputLocation', type='text', name='password', placeholder='Location', value=user.profile.location)
+            .form-group
+                label(for="inputWebsite" class="col-sm-3 control-label") Website
+                .col-sm-6
+                    input(class='form-control', id='inputWebsite', type='text', name='website', placeholder='Website', value=user.profile.website)
+            .form-group
+                label.col-sm-3.control-label User's gender
+                .col-sm-6
+                    label.radio.col-sm-3
+                        input(type='radio', checked=user.profile.gender == 'male', name='gender', value='male', data-toggle='radio')
+                        span Male
+                    label.radio.col-sm-3
+                        input(type='radio', checked=user.profile.gender == 'female', name='gender', value='female', data-toggle='radio')
+                        span Female
+                    label.radio.col-sm-3
+                        input(type='radio', checked=user.profile.gender == 'other', name='gender', value='other', data-toggle='radio')
+                        span Other
+            .form-group
+                .col-sm-offset-3.col-sm-6
+                    button(class='btn btn-lg btn-primary btn-block', type='submit')
+                        i.fas.fa-user-edit
+                        |  Update Profile
+            span.clearfix
+
+    h1.text-center.login-title Change Password
+    .signup-wall
+        form(class='form-horizontal', action='/account/password', method='POST')
+            input(type='hidden', name='_csrf', value=_csrf)
+            .form-group
+                label(for="inputPassword" class="col-sm-3 control-label") Password
+                .col-sm-6
+                    input(class='form-control', id='inputPassword', type='password', name='password', placeholder='Password', required)
+            .form-group
+                label(for="confirmPassword" class="col-sm-3 control-label") Confirm Password
+                .col-sm-6
+                    input(class='form-control', id='confirmPassword', type='password', name='confirmPassword', placeholder='Confirm Password', required)
+            .form-group
+                .col-sm-offset-3.col-sm-6
+                    button(class='btn btn-lg btn-primary btn-block', type='submit')
+                        i.fas.fa-user-lock
+                        |  Change Password
+            span.clearfix
+
+
+    h1.text-center.login-title Delete Account
+    .signup-wall
+        form.form-horizontal(action='/account/delete', method='POST', onsubmit="return confirm('Are you sure you want to delete your account?');")
+            .form-group
+                p.col-sm-offset-1.col-sm-10 You can delete your account, but keep in mind this action is irreversible.
+                input(type='hidden', name='_csrf', value=_csrf)
+                .col-sm-offset-3.col-sm-6
+                    button(class='btn btn-lg btn-danger btn-block', type='submit')
+                        i.fas.fa-user-times
+                        |  Delete my account
+
+    h1.text-center.login-title Linked Accounts
+    .signup-wall
+        form.form-horizontal
+            .form-group.linked-accounts
+                .col-sm-offset-4.col-sm-4
+                    if user.facebook
+                        p: a.text-danger(href='/account/unlink/facebook')
+                            i.fab.fa-facebook
+                            |  Unlink your Facebook account
+                    else
+                        p: a(href='/auth/facebook')
+                            i.fab.fa-facebook
+                            |  Link your Facebook account
+                .col-sm-offset-4.col-sm-4
+                    if user.twitter
+                        p: a.text-danger(href='/account/unlink/twitter')
+                            i.fab.fa-twitter
+                            |  Unlink your Twitter account
+                    else
+                        p: a(href='/auth/twitter')
+                            i.fab.fa-twitter
+                            |  Link your Twitter account
+                .col-sm-offset-4.col-sm-4
+                    if user.google
+                        p: a.text-danger(href='/account/unlink/google')
+                            i.fab.fa-google
+                            |  Unlink your Google account
+                    else
+                        p: a(href='/auth/google')
+                            i.fab.fa-google
+                            |  Link your Google account
+                .col-sm-offset-4.col-sm-4
+                    if user.github
+                        p: a.text-danger(href='/account/unlink/github')
+                            i.fab.fa-github
+                            |  Unlink your GitHub account
+                    else
+                        p: a(href='/auth/github')
+                            i.fab.fa-github
+                            |  Link your GitHub account
+                .col-sm-offset-4.col-sm-4
+                    if user.linkedin
+                        p: a.text-danger(href='/account/unlink/linkedin')
+                            i.fab.fa-linkedin
+                            |  Unlink your LinkedIn account
+                    else
+                        p: a(href='/auth/linkedin')
+                            i.fab.fa-linkedin
+                            |  Link your LinkedIn account
+                .col-sm-offset-4.col-sm-4
+                    if user.instagram
+                        p: a.text-danger(href='/account/unlink/instagram')
+                            i.fab.fa-instagram
+                            |  Unlink your Instagram account
+                    else
+                        p: a(href='/auth/instagram')
+                            i.fab.fa-instagram
+                            |  Link your Instagram account

@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+
+    h1.text-center.login-title Twilio API
+    .signup-wall.box-examples
+        .btn-group.btn-group-justified
+            a.btn.btn-primary(href='http://twilio.github.io/twilio-node/', target='_blank')
+                i.far.fa-check-square
+                |  Twilio Node
+            a.btn.btn-primary(href='https://www.twilio.com/console', target='_blank')
+                i.fas.fa-laptop
+                |  API Console
+            a.btn.btn-primary(href='https://www.twilio.com/docs/api/rest', target='_blank')
+                i.fas.fa-code-branch
+                |  REST API
+
+        br
+        .row
+            .col-sm-6
+                form(role='form', method='POST')
+                    input(type='hidden', name='_csrf', value=_csrf)
+                    .form-group
+                        label.control-label Number to text
+                        input.form-control(type='text', name='number', autofocus)
+                    .form-group
+                        label.control-label Message
+                        input.form-control(type='text', name='message')
+                    button.btn.btn-default(type='submit')
+                        i.fas.fa-location-arrow.fa-sm
+                        | Send

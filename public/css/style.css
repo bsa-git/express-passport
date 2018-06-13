@@ -1,0 +1,187 @@
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-signin .form-signin-heading, .form-signin .checkbox {
+    margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+    font-weight: normal;
+}
+
+.form-signin .form-control {
+    margin-bottom: 5px;
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-signin input[type="text"] {
+    /*margin-bottom: 5px;*/
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    /*margin-bottom: 5px;*/
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-signin input[type="password"].nomargin {
+    /*margin-bottom: 5px;*/
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-signin .btn-group {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.form-signin .btn-group #submit {
+    width: 90%;
+}
+
+.form-signin .btn-group .dropdown-toggle {
+    width: 10%;
+}
+
+.form-signin .btn-group .dropdown-menu {
+    width: 90%;
+}
+
+.linked-accounts {
+    text-align: left;
+}
+
+.account-wall {
+    margin-top: 20px;
+    padding: 40px 0px 20px 0px;
+    background-color: #343c3d;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.signup-wall {
+    margin-top: 20px;
+    padding: 20px 0px 20px 0px;
+    background-color: #343c3d;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.box-examples {
+    text-align: left;
+    padding-left: 20px;
+!important;
+    padding-right: 20px;
+!important;
+}
+
+/*.api-examples{*/
+/*text-align: left;*/
+/*padding-left: 20px; !important;*/
+/*padding-right: 20px; !important;*/
+/*}*/
+
+.api-examples a, a:focus, a:hover {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+.api-examples {
+    color: #333;
+}
+
+.api-examples table {
+    background-color: aliceblue;
+}
+
+.login-title {
+    color: rgba(255, 255, 255, .75);
+    /*font-size: 18px;*/
+    /*font-weight: 400;*/
+    display: block;
+}
+
+.profile-img {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.new-account {
+    display: block;
+    margin-top: 10px;
+}
+
+#message .alert-danger {
+    color: white;
+    background-color: #e74c3c;
+    border-color: #ebccd1;
+}
+
+#message .alert-info {
+    color: white;
+    background-color: #209cee;
+    border-color: #bce8f1;
+}
+
+#message .alert-success {
+    color: white;
+    background-color: #2ecc71;
+    border-color: #d6e9c6;
+}
+
+#message .alert-warning {
+    color: white;
+    background-color: #f1b70e;
+    border-color: #faebcc;
+}
+
+#message .close {
+    color: initial;
+}
+
+h1.error-message {
+    color: #e74c3c;
+}
+
+h1.info-message {
+    color: #209cee;
+}
+
+h1.success-message {
+    color: #2ecc71;
+}
+
+h1.warning-message {
+    color: #f1b70e;
+}
+
+ul.user-details {
+    list-style: none;
+}
+
+.cover .btn-lg {
+    margin-top: 20px;
+}

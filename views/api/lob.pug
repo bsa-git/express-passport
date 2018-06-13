@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+
+    h1.text-center.login-title Lob API
+    .signup-wall.box-examples
+        .btn-group.btn-group-justified
+            a.btn.btn-primary(href='https://lob.com/docs', target='_blank')
+                i.far.fa-check-square
+                |  API Documentation
+            a.btn.btn-primary(href='https://github.com/lob/lob-node', target='_blank')
+                i.fas.fa-code
+                |  Lob Node Docs
+            a.btn.btn-primary(href='https://dashboard.lob.com/register', target='_blank')
+                i.fas.fa-cog
+                |  Create API Account
+        br
+        h3 Delivery routes in 10007
+        .api-examples
+            table.table.table-striped.table-bordered
+                thead
+                    tr
+                        th Route
+                        th # of Residential Addresses
+                        th # of Business Addresses
+                tbody
+                    for route in routes
+                        tr
+                            td= route.route
+                            td= route.residential
+                            td= route.business

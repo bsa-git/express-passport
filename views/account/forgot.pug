@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+
+    h1.text-center.login-title Forgot Password
+    div.account-wall
+        form(class='form-signin', action='/forgot', method='POST')
+            input(type='hidden', name='_csrf', value=_csrf)
+            p Enter your email address below and we will send you password reset instructions.
+            input(type='email', name='email', class='form-control', placeholder='Email', autofocus, required)
+            button(class='btn btn-lg btn-primary btn-block', type='submit')
+                i.fas.fa-user-shield
+                |  Reset Password
+            span.clearfix

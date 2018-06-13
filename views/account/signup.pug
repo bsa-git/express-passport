@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+    h1.text-center.login-title Sign up
+    div.signup-wall
+        form(class='form-horizontal', action='/signup', method='POST')
+            input(type='hidden', name='_csrf', value=_csrf)
+            div.form-group
+                label(for="inputEmail" class="col-sm-3 control-label") Email
+                div.col-sm-6
+                    input(class='form-control', id='inputEmail', type='email', name='email', placeholder='Email', autofocus, required)
+            div.form-group
+                label(for="inputPassword" class="col-sm-3 control-label") Password
+                div.col-sm-6
+                    input(class='form-control', id='inputPassword', type='password', name='password', placeholder='Password', required)
+            div.form-group
+                label(for="confirmPassword" class="col-sm-3 control-label") Confirm Password
+                div.col-sm-6
+                    input(class='form-control', id='confirmPassword', type='password', name='confirmPassword', placeholder='Confirm Password', required)
+            div.form-group
+                div(class="col-sm-offset-3 col-sm-6")
+                    button(class='btn btn-lg btn-primary btn-block', type='submit')
+                        i.fas.fa-user-plus
+                        |  Signup
+            span.clearfix

@@ -1,0 +1,22 @@
+.masthead.clearfix
+    .inner
+        h3.masthead-brand
+            a(href='/') Passport for Node.js
+        nav
+            ul.nav.masthead-nav
+                li(class=title == 'Home' ? 'active' : undefined)
+                    a(href='/') Home
+                li(class=title == 'Contact' ? 'active' : undefined)
+                    a(href='/contact') Contact
+                if isAuthenticated
+                    li(class=title == 'Account Management' ? 'active' : undefined)
+                        a(href='/account') My Account
+                    li(class=title == 'Login' ? 'active' : undefined)
+                        a(href='/logout') Logout
+                else
+                    li(class=title == 'Login' ? 'active' : undefined)
+                        a(href='/login') Login
+                    li(class=title == 'Create Account' ? 'active' : undefined)
+                        a(href='/signup') Create Account
+
+

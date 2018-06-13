@@ -1,0 +1,27 @@
+extends layout
+
+block content
+
+    h1.text-center.login-title Contact Form
+    div.signup-wall
+        form(class='form-horizontal', action='/contact', method='POST')
+            input(type='hidden', name='_csrf', value=_csrf)
+            if (unknownUser)
+                .form-group
+                    label(for="inputUserName" class="col-sm-3 control-label") User Name
+                    .col-sm-6
+                        input(class='form-control', id='inputUserName', type='text', name='name', placeholder='User Name' autofocus=true)
+                .form-group
+                    label(for="inputEmail" class="col-sm-3 control-label") Email
+                    .col-sm-6
+                        input(class='form-control', id='inputEmail', type='email', name='email', placeholder='Email')
+            .form-group
+                label(for="inputMessage" class="col-sm-3 control-label") Your message
+                .col-sm-6
+                    textarea(class='form-control', name='message', id='inputMessage', rows='7')
+            .form-group
+                .col-sm-offset-3.col-sm-6
+                    button(class='btn btn-lg btn-primary btn-block', type='submit')
+                        i.far.fa-envelope
+                        |  Send
+            span.clearfix

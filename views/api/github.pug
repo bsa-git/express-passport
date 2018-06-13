@@ -1,0 +1,41 @@
+extends ../layout
+
+block content
+    h1.text-center.login-title GitHub API
+    .signup-wall.box-examples
+        .btn-group.btn-group-justified
+            a.btn.btn-primary(href='https://developer.github.com/v3/guides/', target='_blank')
+                i.far.fa-check-square
+                |  Development Guides
+            a.btn.btn-primary(href='http://developer.github.com/v3/', target='_blank')
+                i.far.fa-file-alt
+                |  Documentation
+            a.btn.btn-primary(href='https://developer.github.com/v3/libraries/', target='_blank')
+                i.fas.fa-laptop
+                |  Libraries
+        br
+        .panel.panel-primary.api-examples
+            .panel-heading
+                h3.panel-title Repository Information
+            .panel-body
+                .row
+                    .col-xs-4
+                        img.img-rounded.img-responsive(src='https://github.global.ssl.fastly.net/images/modules/logos_page/Octocat.png')
+                    .col-xs-8
+                        h4
+                            a(href=repo.html_url) #{repo.name}
+                        ul.list-inline
+                            li
+                                i.far.fa-eye-slash
+                                |  Subscribers: #{repo.subscribers_count}
+                            li
+                                i.far.fa-star
+                                |  Starred: #{repo.stargazers_count}
+                            li
+                                i.fas.fa-code-branch
+                                |  Forks: #{repo.forks_count}
+                            li
+                                i.fas.fa-code
+                                | #{repo.language}
+                        strong DESCRIPTION
+                        p= repo.description
