@@ -59,5 +59,15 @@
   "engines": {
     "node": ">=8.11.1",
     "npm": ">=5.6.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bsa-git/express-passport"
+  },
+  "keywords": [
+    "node",
+    "passport",
+    "express"
+  ],
+  "license": "MIT"
 }
