@@ -11,8 +11,18 @@ const http = require('http');
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT || '3000');
+/**
+ * Get port from environment and store in Express.
+ */
+const _port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000;
+const port = normalizePort(_port);
 app.set('port', port);
+
+/**
+ * Get host from environment and store in Express.
+ */
+const _host = process.env.BASE_URL || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
+app.set('host', _host);
 
 /**
  * Create HTTP server.
@@ -85,6 +95,6 @@ function onListening() {
     const bind = typeof addr === 'string'
         ? 'pipe ' + addr
         : 'port ' + addr.port;
-    console.log('%s App is running at http://localhost:%d in %s mode', chalk.green('✓'), app.get('port'), app.get('env'));
+    console.log('%s App is running at %s:%d in %s mode', chalk.green('✓'), app.get('host'), app.get('port'), app.get('env'));
     console.log('  Press CTRL-C to stop\n');
 }
