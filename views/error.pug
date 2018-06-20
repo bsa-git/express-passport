@@ -3,5 +3,8 @@ extends layout
 block content
     h2.text-danger= message
     h3= error.status
-    error.stack ? pre #{error.stack} : ''
+    if error.stack
+        .text-left
+            pre #{error.stack}
+
 

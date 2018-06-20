@@ -266,6 +266,9 @@ exports.postTwilio = (req, res, next) => {
  * Web scraping example using Cheerio library.
  */
 exports.getScraping = (req, res, next) => {
+
+    throw new Error('ERROR xxxxxxxxxx!!!!!');
+
     request.get('https://news.ycombinator.com/', (err, request, body) => {
         if (err) {
             return next(err);
