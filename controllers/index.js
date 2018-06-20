@@ -106,8 +106,8 @@ exports.init = (app, passport) => {
     app.get('/auth/linkedin/callback', passport.authenticate('linkedin', {failureRedirect: '/login'}), (req, res) => {
         res.redirect(req.session.returnTo || '/');
     });
-    app.get('/auth/steam', passport.authorize('openid', {state: 'SOME STATE'}));
-    app.get('/auth/steam/callback', passport.authorize('openid', {failureRedirect: '/api'}), (req, res) => {
+    app.get('/auth/steam', passport.authorize('steam', {state: 'SOME STATE'}));
+    app.get('/auth/steam/callback', passport.authorize('steam', {failureRedirect: '/api'}), (req, res) => {
         res.redirect(req.session.returnTo);
     });
 
