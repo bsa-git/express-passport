@@ -18,7 +18,7 @@ exports.getContact = (req, res) => {
 
 /**
  * POST /contact
- * Send a contact form via Nodemailer.
+ * Send a contact form via SendGrid.
  */
 exports.postContact = (req, res) => {
     let fromName;
