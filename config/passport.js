@@ -509,14 +509,22 @@ passport.use('steam', new OpenIDStrategy({
                 const data = JSON.parse(body);
                 const profile = data.response.players[0];
 
-                const user = new User();
-                user.steam = steamId;
-                user.email = `${steamId}@steam.com`; // steam does not disclose emails, prevent duplicate keys
-                user.tokens.push({kind: 'steam', accessToken: steamId});
-                user.profile.name = profile.personaname;
-                user.profile.picture = profile.avatarmedium;
-                user.save((err) => {
-                    done(err, user);
+                User.findOne({steam: steamId}, (err, existingUser) => {
+                    if (err) {
+                        return done(err);
+                    }
+                    if (existingUser) {
+                        return done(null, existingUser);
+                    }
+                    const user = new User();
+                    user.steam = steamId;
+                    user.email = `${steamId}@steam.com`; // steam does not disclose emails, prevent duplicate keys
+                    user.tokens.push({kind: 'steam', accessToken: steamId});
+                    user.profile.name = profile.personaname;
+                    user.profile.picture = profile.avatarmedium;
+                    user.save((err) => {
+                        done(err, user);
+                    });
                 });
             } else {
                 done(error, null);
