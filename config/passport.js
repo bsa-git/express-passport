@@ -461,8 +461,6 @@ passport.use('instagram', new InstagramStrategy({
 passport.use('steam', new OpenIDStrategy({
     apiKey: process.env.STEAM_KEY,
     providerURL: 'http://steamcommunity.com/openid',
-    // returnURL: `${process.env.BASE_URL}/auth/steam/callback`,
-    // realm: `${process.env.BASE_URL}/`,
     returnURL: '/auth/steam/callback',
     realm: '/',
     stateless: true,
