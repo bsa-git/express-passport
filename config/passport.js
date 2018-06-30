@@ -491,12 +491,10 @@ passport.use('steam', new OpenIDStrategy({
                             user.profile.name = user.profile.name || profile.personaname;
                             user.profile.picture = user.profile.picture || profile.avatarmedium;
                             user.save((err) => {
+                                req.flash('info', {msg: 'Steam account has been linked.'});
                                 done(err, user);
                             });
                         } else {
-                            user.save((err) => {
-                                done(err, user);
-                            });
                             done(error, null);
                         }
                     });
