@@ -134,3 +134,12 @@ block content
                         p: a(href='/auth/instagram')
                             i.fab.fa-instagram
                             |  Link your Instagram account
+                .col-sm-offset-4.col-sm-4
+                    if user.steam
+                        p: a.text-danger(href='/account/unlink/steam')
+                            i.fab.fa-steam
+                            |  Unlink your Steam account
+                    else
+                        p: a(href='/auth/steam')
+                            i.fab.fa-steam
+                            |  Link your Steam account
